@@ -4,38 +4,43 @@
 int main(int argc, char const *argv[])
 {
     // intialization of required variables
-    int i,si=0,di=0,one_count=0;
+    int source_index=0,dest_index=0,one_count=0;
     char flag_byte[]="01111110";
-    char src[max],dest[max];
+    char source[max],destination[max];
     printf("\n Enter the frame in binary\n");
-    gets(src);
+    gets(source);
 
 // Bitstuffing
-// Adding first flag byte to dest message
-    strcpy(dest,flag_byte);
-    di=strlen(flag_byte);
-    while(src[si]!='\0')
+
+
+// Adding  flag byte to destination message on the first
+    strcpy(destination,flag_byte);
+    dest_index=strlen(flag_byte);
+    while(source[source_index]!='\0')
     {
-        if(src[si]=='1'){
+        if(source[source_index]=='1'){
             one_count++;            
         }
         else
         one_count=0;
-        dest[di++]=src[si++];
+        destination[dest_index]=source[source_index];
+        dest_index++;source_index++]
         
         // stuffing happens here
         if(one_count==5){
-            dest[di++]='0';
+            destination[dest_index]='0';
+            dest_index++
             one_count=0;
         }
 
     }
+// adding null to end the string
 
-dest[di]='\0';
+destination[dest_index]='\0';
 // adding flagbyte and end of frame
-strcat(dest,flag_byte);
-printf("\n The stuffed frame is \n %s",dest);
 
+strcat(destination,flag_byte);
+printf("\n The stuffed frame is \n %s",destination);
 
     return 0;
 }

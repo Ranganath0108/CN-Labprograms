@@ -24,12 +24,12 @@ int main(int argc, char const *argv[])
         else
         one_count=0;
         destination[dest_index]=source[source_index];
-        dest_index++;source_index++]
+        dest_index++;source_index++;
         
         // stuffing happens here
         if(one_count==5){
             destination[dest_index]='0';
-            dest_index++
+            dest_index++;
             one_count=0;
         }
 
